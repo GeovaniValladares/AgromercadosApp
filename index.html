@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AgroMercados App</title>
+    <style>
+        :root {
+            --green-700: #0b6b3a;
+            /* color principal inspirado en MAG */
+            --green-500: #27a25a;
+            --olive: #7aa86a;
+            --navy: #0b3954;
+            --muted: #f3f6f4;
+            --card-shadow: 0 6px 18px rgba(11, 105, 58, 0.08);
+            --radius: 14px;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--muted);
+            /* Fondo sólido con el color apagado */
+            color: #123;
+        }
+
+        header {
+            background-color: #303845;
+            padding: 18px 24px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 10px;
+            background: var(--accent);
+            /* Fondo sólido con el color acento */
+            display: flex;
+            /* ... */
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 600
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 28px auto;
+            padding: 0 18px
+        }
+
+        .hero {
+            display: flex;
+            gap: 28px;
+            align-items: center
+        }
+
+        .hero-left {
+            flex: 1
+        }
+
+        h1 {
+            font-size: clamp(26px, 4.5vw, 40px);
+            margin: 0 0 12px;
+            color: #052a1a
+        }
+
+        p.lead {
+            font-size: 18px;
+            margin: 0 0 18px;
+            color: #1f4f36
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px
+        }
+
+        .btn {
+            padding: 12px 18px;
+            border-radius: 10px;
+            border: 0;
+            cursor: pointer;
+            font-weight: 700
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: white
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--navy);
+            color: var(--navy)
+        }
+
+        .cta a.btn {
+            text-decoration: none;
+        }
+
+        .hero-right {
+            width: 350px;
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--card-shadow)
+        }
+
+        .mock-phone {
+            width: 100%;
+            /* height: 520px; <--- ELIMINA ESTA LÍNEA */
+            min-height: 600px;
+            /* Puedes usar un min-height para asegurar un tamaño mínimo */
+            border-radius: 12px;
+            background: #ffffff;
+            /* Si quieres el fondo blanco sólido */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .phone-header {
+            height: 46px;
+            background: var(--green-700);
+            /* Fondo sólido con el verde oscuro */
+            color: white;
+            /* ... */
+        }
+
+        .phone-body {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 26px
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: var(--card-shadow);
+        }
+
+        section.features {
+            margin-top: 28px
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 26px;
+            align-items: start
+        }
+
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px
+        }
+
+        .adv {
+            background: linear-gradient(180deg, #fff, #f7fff7);
+            padding: 12px;
+            border-radius: 10px
+        }
+
+        footer {
+            margin-top: 48px;
+            padding: 18px;
+            background: #f7f9f7;
+            border-top: 1px solid #e9efe6
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 6px 9px;
+            background: #eaf6ea;
+            border-radius: 999px;
+            font-weight: 700;
+            color: var(--green-700);
+        }
+
+        /* responsive */
+        @media (max-width:900px) {
+            .hero {
+                flex-direction: column
+            }
+
+            .hero-right {
+                width: 100%
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr
+            }
+
+            .feature-cards {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+
+            <div>
+                <div style="font-weight:800;letter-spacing:1px">AgroMercados App</div>
+
+            </div>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#ventajas">Ventajas</a>
+            <a href="#como-funciona">Cómo funciona</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-left">
+                <span class="chip">Simulación académica</span>
+                <h1>AgroMercados App - Encuentra tu Agromercado más cercano</h1>
+                <p class="lead">Presentación de la idea: una aplicación móvil que reúne la oferta de los AgroMercados a
+                    precios justos, facilita localización, lista de precios y horarios de disponibilidad.</p>
+                <div class="cta">
+                    <a href="https://drive.google.com/file/d/1fFXPx3THme-ljS7Y2MBSfXSQnqH3P9aD/view?usp=sharing"
+                        class="btn btn-primary" target="_blank">
+                        Ver prototipo
+                    </a>
+
+                    <a href="https://drive.google.com/uc?export=download&id=1dfSC_dg356ZFyiIJHpAMfbLXXG5onps5"
+                        class="btn btn-outline">
+                        Descargar PDF
+                    </a>
+                </div>
+
+                <section class="features">
+                    <h2 style="margin-top:20px">Características principales</h2>
+                    <div class="feature-cards">
+                        <div class="card">
+                            <strong>Mapa de puntos</strong>
+                            <div style="font-size:13px;margin-top:8px;">Localiza los principales AgroMercados de los
+                                departamentos de La Paz y San Salvador con rutas y horarios.</div>
+                        </div>
+                        <div class="card">
+                            <strong>Tablas de precios</strong>
+                            <div style="font-size:13px;margin-top:8px;">Precios actualizados para comparar y
+                                elegir.</div>
+                        </div>
+                        <div class="card">
+                            <strong>Reseñas y sugerencias</strong>
+                            <div style="font-size:13px;margin-top:8px;">Puedes ver las reseñas y comentarios de los
+                                diferentes clientes de los Agromercados disponibles.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="hero-right">
+                <div class="mock-phone" role="img" aria-label="Mockup de la app - Pantalla principal">
+                    <img src="Agro_App.jpg" alt="Captura de pantalla de la aplicación AgroMercados"
+                        style="width: 100%; height: auto; display: block; border-radius: 12px;">
+                </div>
+            </aside>
+        </section>
+
+        <section class="grid-2" id="ventajas">
+            <div>
+                <h2>Ventajas de usar la App</h2>
+                <div class="advantages">
+                    <div class="adv"><strong>Acceso directo a precios</strong>
+                        <div style="font-size:13px;opacity:0.85">Conoce los precios directamente para personalizar tu
+                            presupuesto</div>
+                    </div>
+                    <div class="adv"><strong>Mejor planificación</strong>
+                        <div style="font-size:13px;opacity:0.85">Conoce horarios y ubicación exacta para planear
+                            compras.</div>
+                    </div>
+
+                </div>
+
+                <h3 style="margin-top:18px">Casos de uso</h3>
+                <ul>
+                    <li>Consumidor busca Agromercado dentro de su municipio</li>
+                    <li>Aplicación sugiere el Agromercado mas cercano</li>
+                    <li>Comsumidor tiene acceso a diferentes puntos de venta, reseñas, horarios y precios</li>
+                </ul>
+            </div>
+
+
+        </section>
+
+        <section id="como-funciona" style="margin-top:28px">
+            <h2>Cómo funciona</h2>
+            <ol>
+                <li>Recolectamos datos oficiales de ubicación y precios.</li>
+                <li>Normalizamos y cargamos al backend.</li>
+                <li>La app muestra mapa, lista de precios y productos disponibles</li>
+            </ol>
+
+
+        </section>
+
+        <section id="contacto" style="margin-top:28px">
+            <h2>Equipo Universitario</h2>
+            <p style="font-size:13px;margin:0 0 8px">El siguiente proyecto ha sido posible por:</p>
+            <div style="display:flex;gap:12px;margin-top:8px">
+                <div style="background:white;padding:12px;border-radius:10px;flex:1;box-shadow:var(--card-shadow)">
+                    <strong>Docente</strong>
+                    <div style="font-size:13px;opacity:0.8">Ing. Armando Sánchez</div>
+                </div>
+                <div style="background:white;padding:12px;border-radius:10px;flex:1;box-shadow:var(--card-shadow)">
+                    <strong>Equipo</strong>
+                    <div style="font-size:13px;opacity:0.8">Estudiantes:
+                        • Carlolin Jazmin
+                        • Geovani Valladares
+                        • Jonathan Rodriguez
+                        • Armando Calderon
+                        • Alexis Guerra</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container"
+            style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div>
+                <strong>AgroMercados App</strong>
+                <div style="font-size:13px;opacity:0.8">Diseño y colores inspirados en la comunicación institucional del
+                    MAG para uso educativo.</div>
+            </div>
+            <div style="font-size:13px;opacity:0.9">Publicado: <strong>23 de noviembre de 2025</strong></div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
